@@ -5,7 +5,7 @@ class Sandbox : public Future::Application
 public:
 	Sandbox()
 	{
-
+		
 	}
 
 	~Sandbox()

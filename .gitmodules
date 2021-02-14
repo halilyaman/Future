@@ -1,0 +1,3 @@
+[submodule "Future/vendor/spdlog"]
+	path = Future/vendor/spdlog
+	url = https://github.com/gabime/spdlog
