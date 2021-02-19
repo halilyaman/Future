@@ -18,6 +18,9 @@ project "Future"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "ftpch.h"
+	pchsource "Future/src/ftpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

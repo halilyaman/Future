@@ -1,10 +1,6 @@
 #pragma once
-#include <functional>
 
 #include "Future/Core.h"
-#include <string>
-#include <sstream>
-
 
 namespace Future
 {

@@ -34,6 +34,7 @@
     <ClInclude Include="src\Future\Log.h">
       <Filter>Future</Filter>
     </ClInclude>
+    <ClInclude Include="src\ftpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Future\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Future\Log.cpp">
       <Filter>Future</Filter>
     </ClCompile>
+    <ClCompile Include="src\ftpch.cpp" />
   </ItemGroup>
 </Project>

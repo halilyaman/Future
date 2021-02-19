@@ -1,3 +1,4 @@
+#include "ftpch.h"
 #include "Application.h"
 
 #include "Future/Events/ApplicationEvent.h"

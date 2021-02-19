@@ -1,8 +1,5 @@
 #pragma once
 
-// temporary for debugging
-#include <iostream>
-
 // For use by Future applications
 #include "Future/Application.h"
 #include "Future/Log.h"
