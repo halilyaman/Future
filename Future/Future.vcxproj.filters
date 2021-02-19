@@ -4,6 +4,9 @@
     <Filter Include="Future">
       <UniqueIdentifier>{80F0AEB3-6C92-D989-554D-EDDD418E60DA}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Future\Events">
+      <UniqueIdentifier>{640CE1A7-D0CC-5CDE-9907-A65B0587A1BA}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Future.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Future\EntryPoint.h">
       <Filter>Future</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Future\Events\ApplicationEvent.h">
+      <Filter>Future\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Future\Events\Event.h">
+      <Filter>Future\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Future\Events\KeyEvent.h">
+      <Filter>Future\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Future\Events\MouseEvent.h">
+      <Filter>Future\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Future\Log.h">
       <Filter>Future</Filter>
