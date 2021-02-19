@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ftpch.h"
 #include "Future/Core.h"
 
 namespace Future
