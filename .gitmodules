@@ -1,3 +1,6 @@
 [submodule "Future/vendor/spdlog"]
 	path = Future/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Future/vendor/GLFW"]
+	path = Future/vendor/GLFW
+	url = https://github.com/TheCherno/glfw

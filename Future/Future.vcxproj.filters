@@ -35,6 +35,8 @@
       <Filter>Future</Filter>
     </ClInclude>
     <ClInclude Include="src\ftpch.h" />
+    <ClInclude Include="src\Future\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Future\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Future\Application.cpp">
@@ -44,5 +46,6 @@
       <Filter>Future</Filter>
     </ClCompile>
     <ClCompile Include="src\ftpch.cpp" />
+    <ClCompile Include="src\Future\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
