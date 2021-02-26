@@ -16,5 +16,7 @@ public:
 
 Future::Application* Future::CreateApplication()
 {
-	return new Sandbox();
+	Sandbox* sandbox = new Sandbox();
+
+	return sandbox;
 }

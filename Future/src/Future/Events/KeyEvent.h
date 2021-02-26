@@ -26,7 +26,7 @@ namespace Future
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyPressedEvent: " << m_KeyCode << " (" << m_RepeadCount << "repeats)";
+			ss << "KeyPressedEvent: " << m_KeyCode << " (" << m_RepeadCount << " repeats)";
 			return ss.str();
 		}
 
