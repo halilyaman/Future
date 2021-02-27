@@ -4,6 +4,7 @@
 #include <Future/Events/Event.h>
 #include <Future/Window.h>
 #include <Future/Events/ApplicationEvent.h>
+#include <Future/LayerStack.h>
 
 namespace Future
 {
@@ -16,9 +17,13 @@ namespace Future
 		void Run();
 
 		void OnEvent(Event& event);
+
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* overlay);
 	private:
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+		LayerStack m_LayerStack;
 
 		bool OnWindowClose(WindowCloseEvent& e);
 	};

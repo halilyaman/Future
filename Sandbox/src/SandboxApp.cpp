@@ -1,11 +1,27 @@
 #include <Future.h>
 
+class ExampleLayer : public Future::Layer
+{
+public:
+	ExampleLayer() : Layer("ExampleLayer") {}
+
+	void OnUpdate() override
+	{
+		
+	}
+
+	void OnEvent(Future::Event& event) override
+	{
+		FT_TRACE(event);
+	}
+};
+
 class Sandbox : public Future::Application
 {
 public:
 	Sandbox()
 	{
-		
+		PushLayer(new ExampleLayer());
 	}
 
 	~Sandbox()
