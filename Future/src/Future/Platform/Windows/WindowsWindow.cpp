@@ -5,6 +5,8 @@
 #include "Future/Events/KeyEvent.h"
 #include "Future/Events/MouseEvent.h"
 
+#include "glad/glad.h"
+
 namespace Future
 {
     static bool s_GLFWInitialized = false;
@@ -37,6 +39,7 @@ namespace Future
 
 		FT_CORE_INFO("Creating window: {0} {1} {2}", m_Data.Title, m_Data.Width, m_Data.Height);
 
+		// initialize GLFW
 		if (!s_GLFWInitialized)
 		{
 			int success = glfwInit();
@@ -45,10 +48,14 @@ namespace Future
 			s_GLFWInitialized = true;
 		}
 
+		// create GLFWwindow and make it current context
 		m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		FT_CORE_ASSERT(m_Window, "Could not initialized window!");
-
 		glfwMakeContextCurrent(m_Window);
+
+		// initialize Glad
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		FT_CORE_ASSERT(status, "Failed to initialize Glad!");
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		this->SetVSync(true);
 

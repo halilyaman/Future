@@ -2,13 +2,19 @@
 #include "Application.h"
 
 #include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace Future
 {
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
+	Application* Application::s_Instance = nullptr;
+
 	Application::Application()
 	{
+		FT_CORE_ASSERT(!s_Instance, "Application already exists!");
+		s_Instance = this;
+
 		// create window
 		m_Window = std::unique_ptr<Window>(Window::Create());
 
@@ -65,10 +71,24 @@ namespace Future
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
+		overlay->OnAttach();
+	}
+
+	void Application::PopLayer(Layer* layer)
+	{
+		m_LayerStack.PopLayer(layer);
+		layer->OnDetach();
+	}
+
+	void Application::PopOverlay(Layer* overlay)
+	{
+		m_LayerStack.PopOverlay(overlay);
+		overlay->OnDetach();
 	}
 }

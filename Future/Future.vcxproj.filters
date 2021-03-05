@@ -7,8 +7,14 @@
     <Filter Include="Future\Events">
       <UniqueIdentifier>{640CE1A7-D0CC-5CDE-9907-A65B0587A1BA}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Future\ImGui">
+      <UniqueIdentifier>{AAC549C7-9628-D96B-3FAE-11222BF0A4EE}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Future\Platform">
       <UniqueIdentifier>{D4BC7340-4048-E104-4959-64F9B5633D05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Future\Platform\OpenGL">
+      <UniqueIdentifier>{882F49C2-7429-7214-5D96-0825492FD880}</UniqueIdentifier>
     </Filter>
     <Filter Include="Future\Platform\Windows">
       <UniqueIdentifier>{0EFB8A63-7A32-D3FA-833C-371EEFF2F9F3}</UniqueIdentifier>
@@ -37,6 +43,9 @@
     <ClInclude Include="src\Future\Events\MouseEvent.h">
       <Filter>Future\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Future\ImGui\ImGuiLayer.h">
+      <Filter>Future\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Future\Layer.h">
       <Filter>Future</Filter>
     </ClInclude>
@@ -45,6 +54,9 @@
     </ClInclude>
     <ClInclude Include="src\Future\Log.h">
       <Filter>Future</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Future\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Future\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Future\Platform\Windows\WindowsWindow.h">
       <Filter>Future\Platform\Windows</Filter>
@@ -58,6 +70,9 @@
     <ClCompile Include="src\Future\Application.cpp">
       <Filter>Future</Filter>
     </ClCompile>
+    <ClCompile Include="src\Future\ImGui\ImGuiLayer.cpp">
+      <Filter>Future\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Future\Layer.cpp">
       <Filter>Future</Filter>
     </ClCompile>
@@ -66,6 +81,9 @@
     </ClCompile>
     <ClCompile Include="src\Future\Log.cpp">
       <Filter>Future</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Future\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Future\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Future\Platform\Windows\WindowsWindow.cpp">
       <Filter>Future\Platform\Windows</Filter>

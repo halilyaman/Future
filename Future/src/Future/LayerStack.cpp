@@ -18,7 +18,6 @@ namespace Future
 
 	void LayerStack::PushLayer(Layer* layer)
 	{
-		std::cout << m_LayerInsert._Ptr << std::endl;
 		m_LayerInsert = m_Layers.emplace(m_LayerInsert, layer);
 	}
 

@@ -13,8 +13,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Future/vendor/GLFW/include"
+IncludeDir["Glad"] = "Future/vendor/Glad/include"
+IncludeDir["ImGui"] = "Future/vendor/imgui"
 
 include "Future/vendor/GLFW"
+include "Future/vendor/Glad"
+include "Future/vendor/imgui"
 
 project "Future"
 	location "Future"
@@ -37,12 +41,16 @@ project "Future"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -54,7 +62,8 @@ project "Future"
 		defines
 		{
 			"FT_PLATFORM_WINDOWS",
-			"FT_BUILD_DLL"
+			"FT_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -63,7 +72,11 @@ project "Future"
 		}
 
 	filter "configurations:Debug"
-		defines "FT_DEBUG"
+		defines
+		{
+			"FT_DEBUG",
+			"FT_ENABLE_ASSERTS"
+		}
 		symbols "On"
 
 	filter "configurations:Release"
