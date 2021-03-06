@@ -89,5 +89,90 @@ namespace Future
 
 	void ImGuiLayer::OnEvent(Event& e)
 	{
+		EventDispatcher Dispatcher(e);
+
+		Dispatcher.Dispatch<MouseButtonPressedEvent>(FT_BIND_EVENT_FN(ImGuiLayer::OnMouseButtonPressed));
+		Dispatcher.Dispatch<MouseButtonReleasedEvent>(FT_BIND_EVENT_FN(ImGuiLayer::OnMouseButtonReleased));
+		Dispatcher.Dispatch<MouseMovedEvent>(FT_BIND_EVENT_FN(ImGuiLayer::OnMouseMoved));
+		Dispatcher.Dispatch<MouseScrolledEvent>(FT_BIND_EVENT_FN(ImGuiLayer::OnMouseScrolled));
+		Dispatcher.Dispatch<KeyPressedEvent>(FT_BIND_EVENT_FN(ImGuiLayer::OnKeyPressed));
+		Dispatcher.Dispatch<KeyReleasedEvent>(FT_BIND_EVENT_FN(ImGuiLayer::OnKeyReleased));
+		Dispatcher.Dispatch<KeyTypedEvent>(FT_BIND_EVENT_FN(ImGuiLayer::OnKeyTyped));
+		Dispatcher.Dispatch<WindowResizeEvent>(FT_BIND_EVENT_FN(ImGuiLayer::OnWindowResized));
+	}
+
+	bool ImGuiLayer::OnMouseButtonPressed(MouseButtonPressedEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseDown[e.GetMouseButton()] = true;
+
+		return false;
+	}
+
+	bool ImGuiLayer::OnMouseButtonReleased(MouseButtonReleasedEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseDown[e.GetMouseButton()] = false;
+
+		return false;
+	}
+
+	bool ImGuiLayer::OnMouseMoved(MouseMovedEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MousePos = ImVec2(e.GetX(), e.GetY());
+
+		return false;
+	}
+
+	bool ImGuiLayer::OnMouseScrolled(MouseScrolledEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseWheel += e.GetYOffset();
+		io.MouseWheelH += e.GetXOffset();
+
+		return false;
+	}
+
+	bool ImGuiLayer::OnKeyPressed(KeyPressedEvent& e) 
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.KeysDown[e.GetKeyCode()] = true;
+
+		io.KeyCtrl = io.KeysDown[GLFW_KEY_LEFT_CONTROL] || io.KeysDown[GLFW_KEY_RIGHT_CONTROL];
+		io.KeyShift = io.KeysDown[GLFW_KEY_LEFT_SHIFT] || io.KeysDown[GLFW_KEY_RIGHT_SHIFT];
+		io.KeyAlt = io.KeysDown[GLFW_KEY_LEFT_ALT] || io.KeysDown[GLFW_KEY_RIGHT_ALT];
+		io.KeySuper = io.KeysDown[GLFW_KEY_LEFT_SUPER] || io.KeysDown[GLFW_KEY_RIGHT_SUPER];
+
+		return false;
+	}
+
+	bool ImGuiLayer::OnKeyReleased(KeyReleasedEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.KeysDown[e.GetKeyCode()] = false;
+
+		return false;
+	}
+
+	bool ImGuiLayer::OnKeyTyped(KeyTypedEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		int keyCode = e.GetKeyCode();
+
+		if (keyCode > 0 && keyCode < 0x10000)
+		{
+			io.AddInputCharacter((unsigned int) keyCode);
+		}
+
+		return false;
+	}
+
+	bool ImGuiLayer::OnWindowResized(WindowResizeEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.DisplaySize = ImVec2(e.GetWidth(), e.GetHeight());
+
+		return false;
 	}
 }

@@ -62,44 +62,44 @@ namespace Future
 		// set GLFW callbacks
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
 		{
-			WindowData* data = (WindowData*)glfwGetWindowUserPointer(window);
-			data->Width = width;
-			data->Height = height;
+			WindowData* windowData = (WindowData*)glfwGetWindowUserPointer(window);
+			windowData->Width = width;
+			windowData->Height = height;
 
 			WindowResizeEvent event(width, height);
-			data->EventCallback(event);
+			windowData->EventCallback(event);
 		});
 
 		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) 
 		{
-			WindowData* data = (WindowData*)glfwGetWindowUserPointer(window);
+			WindowData* windowData = (WindowData*)glfwGetWindowUserPointer(window);
 
 			WindowCloseEvent event;
-			data->EventCallback(event);
+			windowData->EventCallback(event);
 		});
 
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
 		{
-			WindowData* data = (WindowData*)glfwGetWindowUserPointer(window);
+			WindowData* windowData = (WindowData*)glfwGetWindowUserPointer(window);
 
 			switch (action)
 			{
 				case GLFW_PRESS:
 				{
 					KeyPressedEvent event(key, 0);
-					data->EventCallback(event);
+					windowData->EventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
 					KeyReleasedEvent event(key);
-					data->EventCallback(event);
+					windowData->EventCallback(event);
 					break;
 				}
 				case GLFW_REPEAT:
 				{
 					KeyPressedEvent event(key, 1);
-					data->EventCallback(event);
+					windowData->EventCallback(event);
 					break;
 				}
 			}
@@ -107,20 +107,20 @@ namespace Future
 
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) 
 		{
-			WindowData* data = (WindowData*)glfwGetWindowUserPointer(window);
+			WindowData* windowData = (WindowData*)glfwGetWindowUserPointer(window);
 
 			switch (action)
 			{
 				case GLFW_PRESS:
 				{
 					MouseButtonPressedEvent event(button);
-					data->EventCallback(event);
+					windowData->EventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
 					MouseButtonReleasedEvent event(button);
-					data->EventCallback(event);
+					windowData->EventCallback(event);
 					break;
 				}
 			}
@@ -128,18 +128,25 @@ namespace Future
 
 		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset) 
 		{
-			WindowData* data = (WindowData*)glfwGetWindowUserPointer(window);
+			WindowData* windowData = (WindowData*)glfwGetWindowUserPointer(window);
 
 			MouseScrolledEvent event(xOffset, yOffset);
-			data->EventCallback(event);
+			windowData->EventCallback(event);
 		});
 
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos) 
 		{
-			WindowData* data = (WindowData*)glfwGetWindowUserPointer(window);
+			WindowData* windowData = (WindowData*)glfwGetWindowUserPointer(window);
 			
 			MouseMovedEvent event(xPos, yPos);
-			data->EventCallback(event);
+			windowData->EventCallback(event);
+		});
+
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int key)
+		{
+			WindowData* windowData = (WindowData*)glfwGetWindowUserPointer(window);
+			KeyTypedEvent event(key);
+			windowData->EventCallback(event);
 		});
 	}
 

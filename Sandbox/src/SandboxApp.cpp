@@ -10,9 +10,9 @@ public:
 		
 	}
 
-	void OnEvent(Future::Event& event) override
+	void OnEvent(Future::Event& e) override
 	{
-		FT_TRACE(event);
+		FT_TRACE(e);
 	}
 };
 

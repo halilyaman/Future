@@ -6,8 +6,6 @@
 
 namespace Future
 {
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
-
 	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
@@ -19,7 +17,7 @@ namespace Future
 		m_Window = std::unique_ptr<Window>(Window::Create());
 
 		// create Eventcallback function
-		std::function<void(Event&)> EventcallbackFn = BIND_EVENT_FN(OnEvent);
+		std::function<void(Event&)> EventcallbackFn = FT_BIND_EVENT_FN(Application::OnEvent);
 
 		// set Eventcallback function
 		m_Window->SetEventCallback(EventcallbackFn);
@@ -49,7 +47,7 @@ namespace Future
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher Dispatcher(e);
-		Dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+		Dispatcher.Dispatch<WindowCloseEvent>(FT_BIND_EVENT_FN(Application::OnWindowClose));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{

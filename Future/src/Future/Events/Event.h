@@ -14,7 +14,7 @@ namespace Future
 		None = 0,
 		WindowClose, WindowResize, WindowMoved, WindowFocus, WindowLostFocus,
 		AppTick, AppRender, AppUpdate,
-		KeyPressed, KeyReleased,
+		KeyPressed, KeyReleased, KeyTyped,
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
