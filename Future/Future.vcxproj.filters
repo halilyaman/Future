@@ -46,6 +46,9 @@
     <ClInclude Include="src\Future\ImGui\ImGuiLayer.h">
       <Filter>Future\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Future\Input.h">
+      <Filter>Future</Filter>
+    </ClInclude>
     <ClInclude Include="src\Future\Layer.h">
       <Filter>Future</Filter>
     </ClInclude>
@@ -57,6 +60,9 @@
     </ClInclude>
     <ClInclude Include="src\Future\Platform\OpenGL\ImGuiOpenGLRenderer.h">
       <Filter>Future\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Future\Platform\Windows\WindowsInput.h">
+      <Filter>Future\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Future\Platform\Windows\WindowsWindow.h">
       <Filter>Future\Platform\Windows</Filter>
@@ -84,6 +90,9 @@
     </ClCompile>
     <ClCompile Include="src\Future\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
       <Filter>Future\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Future\Platform\Windows\WindowsInput.cpp">
+      <Filter>Future\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Future\Platform\Windows\WindowsWindow.cpp">
       <Filter>Future\Platform\Windows</Filter>

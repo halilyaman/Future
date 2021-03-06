@@ -12,7 +12,7 @@ public:
 
 	void OnEvent(Future::Event& e) override
 	{
-		FT_TRACE(e);
+		
 	}
 };
 

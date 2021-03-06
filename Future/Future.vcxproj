@@ -93,7 +93,7 @@
       <ImportLibrary>..\bin\Debug-windows-x86_64\Future\Future.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Future\Future.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Future\Future.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Future\Future.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Future\Future.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Future\Future.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Future\Future.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -119,7 +119,7 @@
       <ImportLibrary>..\bin\Release-windows-x86_64\Future\Future.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86_64\Future\Future.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Future\Future.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Future\Future.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Release-windows-x86_64\Future\Future.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Future\Future.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Future\Future.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -141,7 +141,7 @@
       <ImportLibrary>..\bin\Dist-windows-x86_64\Future\Future.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Future\Future.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Future\Future.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Future\Future.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Future\Future.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Future\Future.dll "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Future\Future.dll "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -154,10 +154,12 @@
     <ClInclude Include="src\Future\Events\KeyEvent.h" />
     <ClInclude Include="src\Future\Events\MouseEvent.h" />
     <ClInclude Include="src\Future\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Future\Input.h" />
     <ClInclude Include="src\Future\Layer.h" />
     <ClInclude Include="src\Future\LayerStack.h" />
     <ClInclude Include="src\Future\Log.h" />
     <ClInclude Include="src\Future\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Future\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Future\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Future\Window.h" />
     <ClInclude Include="src\ftpch.h" />
@@ -169,6 +171,7 @@
     <ClCompile Include="src\Future\LayerStack.cpp" />
     <ClCompile Include="src\Future\Log.cpp" />
     <ClCompile Include="src\Future\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Future\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Future\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\ftpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
