@@ -18,9 +18,14 @@ IncludeDir["GLFW"] = "Future/vendor/GLFW/include"
 IncludeDir["Glad"] = "Future/vendor/Glad/include"
 IncludeDir["ImGui"] = "Future/vendor/imgui"
 
-include "Future/vendor/GLFW"
-include "Future/vendor/Glad"
-include "Future/vendor/imgui"
+
+
+group "Dependencies"
+	include "Future/vendor/GLFW"
+	include "Future/vendor/Glad"
+	include "Future/vendor/imgui"
+
+group ""
 
 project "Future"
 	location "Future"
