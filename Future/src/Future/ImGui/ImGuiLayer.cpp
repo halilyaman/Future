@@ -79,8 +79,8 @@ namespace Future
 		ImGui::NewFrame();
 
 		// show demo window
-		static bool ShowDemo = true;
-		ImGui::ShowDemoWindow(&ShowDemo);
+		static bool showDemo = true;
+		ImGui::ShowDemoWindow(&showDemo);
 
 		// Rendering
 		ImGui::Render();
