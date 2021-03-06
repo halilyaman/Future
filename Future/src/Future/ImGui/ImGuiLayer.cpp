@@ -3,10 +3,11 @@
 #include "Future/Platform/OpenGL/ImGuiOpenGLRenderer.h"
 #include "GLFW/glfw3.h"
 #include "Future/Application.h"
+#include "Future/Input.h"
 
 namespace Future
 {
-	ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer")
+	ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer"), m_Time(0)
 	{
 	}
 
