@@ -69,24 +69,20 @@ namespace Future
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
-		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
-		overlay->OnAttach();
 	}
 
 	void Application::PopLayer(Layer* layer)
 	{
 		m_LayerStack.PopLayer(layer);
-		layer->OnDetach();
 	}
 
 	void Application::PopOverlay(Layer* overlay)
 	{
 		m_LayerStack.PopOverlay(overlay);
-		overlay->OnDetach();
 	}
 }
