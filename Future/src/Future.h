@@ -4,6 +4,7 @@
 #include "Future/Application.h"
 #include "Future/Log.h"
 #include "Future/ImGui/ImGuiLayer.h"
+#include "Future/Events/KeyEvent.h"
 
 #include "Future/Input.h"
 #include "Future/KeyCodes.h"

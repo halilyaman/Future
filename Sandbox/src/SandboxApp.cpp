@@ -26,6 +26,11 @@ public:
 
 		}
 	}
+
+	virtual void OnImGuiRender()
+	{
+		
+	}
 };
 
 class Sandbox : public Future::Application
@@ -34,7 +39,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Future::ImGuiLayer());
 	}
 
 	~Sandbox()

@@ -21,6 +21,10 @@ namespace Future
 
 		// set Eventcallback function
 		m_Window->SetEventCallback(EventcallbackFn);
+
+		// add ImGuiLayer to the layer stack
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 
 	Application::~Application()
@@ -39,6 +43,14 @@ namespace Future
 			{
 				layer->OnUpdate();
 			}
+
+			// render ImGui for all layers
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+			{
+				layer->OnImGuiRender();
+			}
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}
