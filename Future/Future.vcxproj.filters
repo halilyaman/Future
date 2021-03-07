@@ -71,6 +71,8 @@
       <Filter>Future</Filter>
     </ClInclude>
     <ClInclude Include="src\ftpch.h" />
+    <ClInclude Include="src\Future\KeyCodes.h" />
+    <ClInclude Include="src\Future\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Future\Application.cpp">

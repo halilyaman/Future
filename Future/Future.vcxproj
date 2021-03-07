@@ -155,9 +155,11 @@
     <ClInclude Include="src\Future\Events\MouseEvent.h" />
     <ClInclude Include="src\Future\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Future\Input.h" />
+    <ClInclude Include="src\Future\KeyCodes.h" />
     <ClInclude Include="src\Future\Layer.h" />
     <ClInclude Include="src\Future\LayerStack.h" />
     <ClInclude Include="src\Future\Log.h" />
+    <ClInclude Include="src\Future\MouseButtonCodes.h" />
     <ClInclude Include="src\Future\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Future\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Future\Platform\Windows\WindowsWindow.h" />

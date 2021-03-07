@@ -4,6 +4,7 @@
 #include "GLFW/glfw3.h"
 #include "Future/Application.h"
 #include "Future/Input.h"
+#include "Future/KeyCodes.h"
 
 namespace Future
 {
@@ -29,27 +30,27 @@ namespace Future
 		io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
 
 		// TEMPORARY: should eventually use Future key codes
-		io.KeyMap[ImGuiKey_Tab] = GLFW_KEY_TAB;
-		io.KeyMap[ImGuiKey_LeftArrow] = GLFW_KEY_LEFT;
-		io.KeyMap[ImGuiKey_RightArrow] = GLFW_KEY_RIGHT;
-		io.KeyMap[ImGuiKey_UpArrow] = GLFW_KEY_UP;
-		io.KeyMap[ImGuiKey_DownArrow] = GLFW_KEY_DOWN;
-		io.KeyMap[ImGuiKey_PageUp] = GLFW_KEY_PAGE_UP;
-		io.KeyMap[ImGuiKey_PageDown] = GLFW_KEY_PAGE_DOWN;
-		io.KeyMap[ImGuiKey_Home] = GLFW_KEY_HOME;
-		io.KeyMap[ImGuiKey_End] = GLFW_KEY_END;
-		io.KeyMap[ImGuiKey_Insert] = GLFW_KEY_INSERT;
-		io.KeyMap[ImGuiKey_Delete] = GLFW_KEY_DELETE;
-		io.KeyMap[ImGuiKey_Backspace] = GLFW_KEY_BACKSPACE;
-		io.KeyMap[ImGuiKey_Space] = GLFW_KEY_SPACE;
-		io.KeyMap[ImGuiKey_Enter] = GLFW_KEY_ENTER;
-		io.KeyMap[ImGuiKey_Escape] = GLFW_KEY_ESCAPE;
-		io.KeyMap[ImGuiKey_A] = GLFW_KEY_A;
-		io.KeyMap[ImGuiKey_C] = GLFW_KEY_C;
-		io.KeyMap[ImGuiKey_V] = GLFW_KEY_V;
-		io.KeyMap[ImGuiKey_X] = GLFW_KEY_X;
-		io.KeyMap[ImGuiKey_Y] = GLFW_KEY_Y;
-		io.KeyMap[ImGuiKey_Z] = GLFW_KEY_Z;
+		io.KeyMap[ImGuiKey_Tab] = FT_KEY_TAB;
+		io.KeyMap[ImGuiKey_LeftArrow] = FT_KEY_LEFT;
+		io.KeyMap[ImGuiKey_RightArrow] = FT_KEY_RIGHT;
+		io.KeyMap[ImGuiKey_UpArrow] = FT_KEY_UP;
+		io.KeyMap[ImGuiKey_DownArrow] = FT_KEY_DOWN;
+		io.KeyMap[ImGuiKey_PageUp] = FT_KEY_PAGE_UP;
+		io.KeyMap[ImGuiKey_PageDown] = FT_KEY_PAGE_DOWN;
+		io.KeyMap[ImGuiKey_Home] = FT_KEY_HOME;
+		io.KeyMap[ImGuiKey_End] = FT_KEY_END;
+		io.KeyMap[ImGuiKey_Insert] = FT_KEY_INSERT;
+		io.KeyMap[ImGuiKey_Delete] = FT_KEY_DELETE;
+		io.KeyMap[ImGuiKey_Backspace] = FT_KEY_BACKSPACE;
+		io.KeyMap[ImGuiKey_Space] = FT_KEY_SPACE;
+		io.KeyMap[ImGuiKey_Enter] = FT_KEY_ENTER;
+		io.KeyMap[ImGuiKey_Escape] = FT_KEY_ESCAPE;
+		io.KeyMap[ImGuiKey_A] = FT_KEY_A;
+		io.KeyMap[ImGuiKey_C] = FT_KEY_C;
+		io.KeyMap[ImGuiKey_V] = FT_KEY_V;
+		io.KeyMap[ImGuiKey_X] = FT_KEY_X;
+		io.KeyMap[ImGuiKey_Y] = FT_KEY_Y;
+		io.KeyMap[ImGuiKey_Z] = FT_KEY_Z;
 
 		// setup backend
 		ImGui_ImplOpenGL3_Init("#version 410");
@@ -57,7 +58,6 @@ namespace Future
 
 	void ImGuiLayer::OnDetach()
 	{
-		std::cout << "ImGui detached" << std::endl;
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui::DestroyContext();
 	}
@@ -140,10 +140,10 @@ namespace Future
 		ImGuiIO& io = ImGui::GetIO();
 		io.KeysDown[e.GetKeyCode()] = true;
 
-		io.KeyCtrl = io.KeysDown[GLFW_KEY_LEFT_CONTROL] || io.KeysDown[GLFW_KEY_RIGHT_CONTROL];
-		io.KeyShift = io.KeysDown[GLFW_KEY_LEFT_SHIFT] || io.KeysDown[GLFW_KEY_RIGHT_SHIFT];
-		io.KeyAlt = io.KeysDown[GLFW_KEY_LEFT_ALT] || io.KeysDown[GLFW_KEY_RIGHT_ALT];
-		io.KeySuper = io.KeysDown[GLFW_KEY_LEFT_SUPER] || io.KeysDown[GLFW_KEY_RIGHT_SUPER];
+		io.KeyCtrl = io.KeysDown[FT_KEY_LEFT_CONTROL] || io.KeysDown[FT_KEY_RIGHT_CONTROL];
+		io.KeyShift = io.KeysDown[FT_KEY_LEFT_SHIFT] || io.KeysDown[FT_KEY_RIGHT_SHIFT];
+		io.KeyAlt = io.KeysDown[FT_KEY_LEFT_ALT] || io.KeysDown[FT_KEY_RIGHT_ALT];
+		io.KeySuper = io.KeysDown[FT_KEY_LEFT_SUPER] || io.KeysDown[FT_KEY_RIGHT_SUPER];
 
 		return false;
 	}
