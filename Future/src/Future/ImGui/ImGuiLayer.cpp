@@ -41,7 +41,7 @@ namespace Future
 		}
 
 		// get native window
-		auto window = (GLFWwindow*)Application::Get().GetWindow().GetNativeWindow();
+		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 
 		// Setup Platform/Renderer bindings
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
