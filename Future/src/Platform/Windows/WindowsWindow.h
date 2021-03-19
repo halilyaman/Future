@@ -2,6 +2,7 @@
 
 #include <Future/Window.h>
 #include <GLFW/glfw3.h>
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Future
 {
@@ -28,6 +29,7 @@ namespace Future
 
 	private:
 		GLFWwindow* m_Window;
+		OpenGLContext* m_Context;
 
 		struct WindowData
 		{

@@ -4,7 +4,6 @@
 #include "Future/Events/ApplicationEvent.h"
 #include "Future/Events/KeyEvent.h"
 #include "Future/Events/MouseEvent.h"
-#include "Platform/OpenGL/OpenGLContext.h"
 
 #include "glad/glad.h"
 
@@ -52,13 +51,8 @@ namespace Future
 		// create GLFWwindow and make it current context
 		m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
 
-		
-
-		glfwMakeContextCurrent(m_Window);
-
-		// initialize Glad
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		FT_CORE_ASSERT(status, "Failed to initialize Glad!");
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		this->SetVSync(true);
@@ -161,8 +155,8 @@ namespace Future
 
 	void WindowsWindow::OnUpdate()
 	{
-		glfwSwapBuffers(m_Window);
 		glfwPollEvents();
+		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)

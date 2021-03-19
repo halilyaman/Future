@@ -13,12 +13,6 @@
     <Filter Include="src\Future\ImGui">
       <UniqueIdentifier>{216C6ADA-0D65-892C-3697-6EB122EF6838}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Future\Platform">
-      <UniqueIdentifier>{EBE3DB5A-5745-B968-E0B2-FF1A4C13F027}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Future\Platform\Windows">
-      <UniqueIdentifier>{254958D2-9156-86B8-1A3D-82A38649526F}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Future\Renderer">
       <UniqueIdentifier>{3DEBB835-A94C-9643-32BA-DCF59E1ACD02}</UniqueIdentifier>
     </Filter>
@@ -42,6 +36,15 @@
     </Filter>
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform">
+      <UniqueIdentifier>{EBE3DB5A-5745-B968-E0B2-FF1A4C13F027}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\Windows">
+      <UniqueIdentifier>{254958D2-9156-86B8-1A3D-82A38649526F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{7ccb6613-29c2-4251-8413-3ff7b1b68a81}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -89,12 +92,6 @@
     </ClInclude>
     <ClInclude Include="src\Future\MouseButtonCodes.h">
       <Filter>src\Future</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Future\Platform\Windows\WindowsInput.h">
-      <Filter>src\Future\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Future\Platform\Windows\WindowsWindow.h">
-      <Filter>src\Future\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Future\Renderer\GraphicsContext.h">
       <Filter>src\Future\Renderer</Filter>
@@ -1344,6 +1341,15 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>src\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>src\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Future\Application.cpp">
@@ -1364,17 +1370,20 @@
     <ClCompile Include="src\Future\Log.cpp">
       <Filter>src\Future</Filter>
     </ClCompile>
-    <ClCompile Include="src\Future\Platform\Windows\WindowsInput.cpp">
-      <Filter>src\Future\Platform\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Future\Platform\Windows\WindowsWindow.cpp">
-      <Filter>src\Future\Platform\Windows</Filter>
-    </ClCompile>
     <ClCompile Include="src\Future\Renderer\GraphicsContext.cpp">
       <Filter>src\Future\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ftpch.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>src\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>src\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
