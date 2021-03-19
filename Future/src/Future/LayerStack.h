@@ -5,7 +5,7 @@
 
 namespace Future
 {
-	class FUTURE_API LayerStack
+	class LayerStack
 	{
 	public:
 		LayerStack();

@@ -19,6 +19,9 @@
     <Filter Include="src\Future\Platform\Windows">
       <UniqueIdentifier>{254958D2-9156-86B8-1A3D-82A38649526F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Future\Renderer">
+      <UniqueIdentifier>{3DEBB835-A94C-9643-32BA-DCF59E1ACD02}</UniqueIdentifier>
+    </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
     </Filter>
@@ -92,6 +95,9 @@
     </ClInclude>
     <ClInclude Include="src\Future\Platform\Windows\WindowsWindow.h">
       <Filter>src\Future\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Future\Renderer\GraphicsContext.h">
+      <Filter>src\Future\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Future\Window.h">
       <Filter>src\Future</Filter>
@@ -1363,6 +1369,9 @@
     </ClCompile>
     <ClCompile Include="src\Future\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Future\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Future\Renderer\GraphicsContext.cpp">
+      <Filter>src\Future\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ftpch.cpp">
       <Filter>src</Filter>

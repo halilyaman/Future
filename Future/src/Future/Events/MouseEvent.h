@@ -4,7 +4,7 @@
 
 namespace Future
 {
-	class FUTURE_API MouseMovedEvent : public Event
+	class MouseMovedEvent : public Event
 	{
 	public:
 		MouseMovedEvent(float x, float y) 
@@ -26,7 +26,7 @@ namespace Future
 		float m_MouseX, m_MouseY;
 	};
 
-	class FUTURE_API MouseScrolledEvent : public Event
+	class MouseScrolledEvent : public Event
 	{
 	public:
 		MouseScrolledEvent(float xOffset, float yOffset)

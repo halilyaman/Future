@@ -7,7 +7,7 @@
 
 namespace Future
 {
-	class FUTURE_API Log
+	class Log
 	{
 	public:
 		static void Init();

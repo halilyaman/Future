@@ -1,9 +1,10 @@
 #include "ftpch.h"
 #include "ImGuiLayer.h"
-#include "examples/imgui_impl_opengl3.h"
-#include "examples/imgui_impl_glfw.h"
 #include "GLFW/glfw3.h"
 #include "Future/Application.h"
+
+#include "examples/imgui_impl_opengl3.h"
+#include "examples/imgui_impl_glfw.h"
 
 namespace Future
 {
@@ -70,7 +71,7 @@ namespace Future
 
 		// set display size for imgui
 		Application& app = Application::Get();
-		io.DisplaySize = ImVec2(app.GetWindow().GetWidth(), app.GetWindow().GetHeight());
+		io.DisplaySize = ImVec2((float) app.GetWindow().GetWidth(), (float) app.GetWindow().GetHeight());
 
 		// Rendering
 		ImGui::Render();

@@ -9,7 +9,7 @@
 
 namespace Future
 {
-	class FUTURE_API Application
+	class Application
 	{
 	public:
 		Application();

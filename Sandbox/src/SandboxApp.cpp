@@ -1,5 +1,5 @@
 #include <Future.h>
-#include "imgui.h"
+#include "imgui/imgui.h"
 
 class ExampleLayer : public Future::Layer
 {
@@ -21,7 +21,6 @@ public:
 				FT_TRACE("{0}: Tab key is pressed (event)", this->GetName());
 				keyPressedEvent.Handled = true;
 			}
-
 		}
 	}
 

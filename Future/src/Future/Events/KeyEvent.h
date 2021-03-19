@@ -4,7 +4,7 @@
 
 namespace Future
 {
-	class FUTURE_API KeyEvent : public Event
+	class KeyEvent : public Event
 	{
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
@@ -15,7 +15,7 @@ namespace Future
 		int m_KeyCode;
 	};
 
-	class FUTURE_API KeyPressedEvent : public KeyEvent
+	class KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(int keycode, unsigned int repeadCount) 
@@ -35,7 +35,7 @@ namespace Future
 		unsigned int m_RepeadCount;
 	};
 
-	class FUTURE_API KeyReleasedEvent : public KeyEvent
+	class KeyReleasedEvent : public KeyEvent
 	{
 	public:
 		KeyReleasedEvent(int keycode) : KeyEvent(keycode) {}
@@ -50,7 +50,7 @@ namespace Future
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
 
-	class FUTURE_API KeyTypedEvent : public KeyEvent
+	class KeyTypedEvent : public KeyEvent
 	{
 	public:
 		KeyTypedEvent(int keycode) : KeyEvent(keycode) {}
