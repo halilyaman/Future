@@ -51,6 +51,7 @@ namespace Future
 		// create GLFWwindow and make it current context
 		m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
 
+		// create and initialize OpenGL context
 		m_Context = new OpenGLContext(m_Window);
 		m_Context->Init();
 
