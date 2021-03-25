@@ -3,10 +3,10 @@
 	url = https://github.com/gabime/spdlog
 [submodule "Future/vendor/GLFW"]
 	path = Future/vendor/GLFW
-	url = https://github.com/TheCherno/glfw
+	url = https://github.com/halilyaman/glfw
 [submodule "Future/vendor/imgui"]
 	path = Future/vendor/imgui
-	url = https://github.com/TheCherno/imgui
+	url = https://github.com/halilyaman/imgui
 [submodule "Future/vendor/glm"]
 	path = Future/vendor/glm
 	url = https://github.com/g-truc/glm
