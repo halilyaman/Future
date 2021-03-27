@@ -132,6 +132,9 @@ namespace Future
 	float rotateX = 0.0f;
 	float rotateY = 0.0f;
 	float rotateZ = 0.0f;
+	float transX = 0.0f;
+	float transY = 0.0f;
+	float transZ = 0.0f;
 	float scaleFactor = 1.0f;
 
 	void drawTriangle()
@@ -146,6 +149,7 @@ namespace Future
 		trans = glm::rotate(trans, glm::radians(rotateX), glm::vec3(1.0f, 0.0f, 0.0f));
 		trans = glm::rotate(trans, glm::radians(rotateY), glm::vec3(0.0f, 1.0f, 0.0f));
 		trans = glm::rotate(trans, glm::radians(rotateZ), glm::vec3(0.0f, 0.0f, 1.0f));
+		trans = glm::translate(trans, glm::vec3(transX, transY, transZ));
 		trans = glm::scale(trans, glm::vec3(scaleFactor, scaleFactor, scaleFactor));
 
 		int transformLoc = glGetUniformLocation(triangleShaderProgram, "transform");
@@ -164,6 +168,9 @@ namespace Future
 		ImGui::SliderFloat("Rotate X", &rotateX, 0.0f, 180.0f);
 		ImGui::SliderFloat("Rotate Y", &rotateY, 0.0f, 180.0f);
 		ImGui::SliderFloat("Rotate Z", &rotateZ, 0.0f, 180.0f);
+		ImGui::SliderFloat("Translate X", &transX, -1.0f, 1.0f);
+		ImGui::SliderFloat("Translate Y", &transY, -1.0f, 1.0f);
+		ImGui::SliderFloat("Translate Z", &transZ, -1.0f, 1.0f);
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 		ImGui::End();
 	}
