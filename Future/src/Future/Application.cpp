@@ -3,6 +3,10 @@
 
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
+#include <imgui.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace Future
 {
@@ -30,9 +34,10 @@ namespace Future
 		const char* vertexShaderSource =
 			"#version 330 core\n"
 			"layout (location = 0) in vec3 pos;\n"
+			"uniform mat4 transform;\n"
 			"void main()\n"
 			"{\n"
-			"	gl_Position = vec4(pos, 1.0);\n"
+			"	gl_Position = transform * vec4(pos, 1.0);\n"
 			"}\n";
 
 		unsigned int vertexShader;
@@ -121,15 +126,46 @@ namespace Future
 		glEnableVertexAttribArray(0);
 	}
 
+	float r = 0.0f;
+	float g = 0.0f;
+	float b = 0.0f;
+	float rotateX = 0.0f;
+	float rotateY = 0.0f;
+	float rotateZ = 0.0f;
+	float scaleFactor = 1.0f;
+
 	void drawTriangle()
 	{
 		glClearColor(0.2f, 0.0f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		int loc = glGetUniformLocation(triangleShaderProgram, "myColor");
-		glUniform4f(loc, 0.0f, 0.0f, 1.0f, 1.0f);
+		int colorLoc = glGetUniformLocation(triangleShaderProgram, "myColor");
+		glUniform4f(colorLoc, r, g, b, 1.0f);
 
+		glm::mat4 trans = glm::mat4(1.0f);
+		trans = glm::rotate(trans, glm::radians(rotateX), glm::vec3(1.0f, 0.0f, 0.0f));
+		trans = glm::rotate(trans, glm::radians(rotateY), glm::vec3(0.0f, 1.0f, 0.0f));
+		trans = glm::rotate(trans, glm::radians(rotateZ), glm::vec3(0.0f, 0.0f, 1.0f));
+		trans = glm::scale(trans, glm::vec3(scaleFactor, scaleFactor, scaleFactor));
+
+		int transformLoc = glGetUniformLocation(triangleShaderProgram, "transform");
+		glUniformMatrix4fv(transformLoc, 1 , GL_FALSE, glm::value_ptr(trans));
+		
 		glDrawArrays(GL_TRIANGLES, 0, 3);
+	}
+
+	void drawTriangleControlPanel()
+	{
+		ImGui::Begin("Triangle Control Panel");
+		ImGui::SliderFloat("Red", &r, 0.0f, 1.0f);
+		ImGui::SliderFloat("Green", &g, 0.0f, 1.0f);
+		ImGui::SliderFloat("Blue", &b, 0.0f, 1.0f);
+		ImGui::SliderFloat("Scale Factor", &scaleFactor, 0.5f, 2.0f);
+		ImGui::SliderFloat("Rotate X", &rotateX, 0.0f, 180.0f);
+		ImGui::SliderFloat("Rotate Y", &rotateY, 0.0f, 180.0f);
+		ImGui::SliderFloat("Rotate Z", &rotateZ, 0.0f, 180.0f);
+		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+		ImGui::End();
 	}
 
 	Application::Application()
@@ -175,6 +211,7 @@ namespace Future
 			{
 				layer->OnImGuiRender();
 			}
+			drawTriangleControlPanel();
 			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();

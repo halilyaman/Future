@@ -88,8 +88,6 @@ namespace Future
 
 	void ImGuiLayer::OnImGuiRender()
 	{
-		// show demo window
-		static bool showDemo = true;
-		ImGui::ShowDemoWindow(&showDemo);
+
 	}
 }

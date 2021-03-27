@@ -26,9 +26,6 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-		ImGui::Begin("ExampleLayer1");
-		ImGui::Text("Test");
-		ImGui::End();
 	}
 };
 
