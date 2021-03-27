@@ -8,6 +8,8 @@ namespace Future
 {
 	Application* Application::s_Instance = nullptr;
 
+	unsigned int triangleShaderProgram;
+
 	void setupTriangle()
 	{
 		float vertices[] =
@@ -60,9 +62,10 @@ namespace Future
 		const char* fragmentShaderSource =
 			"#version 330 core\n"
 			"out vec4 color;\n"
+			"uniform vec4 myColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);\n"
 			"void main()\n"
 			"{\n"
-			"	color = vec4(0.0f, 0.5f, 0.5f, 1.0f);\n"
+			"	color = myColor;\n"
 			"}\n";
 
 		unsigned int fragmentShader;
@@ -88,7 +91,6 @@ namespace Future
 			FT_CORE_TRACE("Fragment shader compiled successfully");
 		}
 
-		unsigned int triangleShaderProgram;
 		triangleShaderProgram = glCreateProgram();
 		FT_CORE_TRACE("Created Triangle Shader Program");
 		glAttachShader(triangleShaderProgram, vertexShader);
@@ -117,6 +119,17 @@ namespace Future
 
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
 		glEnableVertexAttribArray(0);
+	}
+
+	void drawTriangle()
+	{
+		glClearColor(0.2f, 0.0f, 0.1f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		int loc = glGetUniformLocation(triangleShaderProgram, "myColor");
+		glUniform4f(loc, 0.0f, 0.0f, 1.0f, 1.0f);
+
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 	}
 
 	Application::Application()
@@ -149,10 +162,7 @@ namespace Future
 	{
 		while (this->m_Running)
 		{
-			glClearColor(0.2f, 0.0f, 0.1f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
-
-			glDrawArrays(GL_TRIANGLES, 0, 3);
+			drawTriangle();
 
 			for (Layer* layer : m_LayerStack)
 			{
